@@ -1,0 +1,102 @@
+{
+  "info": {
+    "_postman_id": "b2b-saas-productivity-dashboard-api",
+    "name": "Productivity Dashboard API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Postman collection for B2B SaaS Productivity Dashboard API."
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/health",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["health"]
+        }
+      }
+    },
+    {
+      "name": "Overview Report",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/report/overview",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["report", "overview"]
+        }
+      }
+    },
+    {
+      "name": "Overview Report (Date Filter)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/report/overview?startDate=2024-03-01&endDate=2024-03-03",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["report", "overview"],
+          "query": [
+            {"key": "startDate", "value": "2024-03-01"},
+            {"key": "endDate", "value": "2024-03-03"}
+          ]
+        }
+      }
+    },
+    {
+      "name": "Member Activity Report",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/report/member/mem_1",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["report", "member", "mem_1"]
+        }
+      }
+    },
+    {
+      "name": "Member Activity Report (Date Filter)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/report/member/mem_1?startDate=2024-03-02&endDate=2024-03-03",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": ["report", "member", "mem_1"],
+          "query": [
+            {"key": "startDate", "value": "2024-03-02"},
+            {"key": "endDate", "value": "2024-03-03"}
+          ]
+        }
+      }
+    },
+    {
+      "name": "API Documentation",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:3000/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "3000",
+          "path": [""]
+        }
+      }
+    }
+  ]
+}
