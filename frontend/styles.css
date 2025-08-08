@@ -1,39 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;600&family=Nunito+Sans:wght@400;700&display=swap');
+
 body {
+    font-family: 'Kumbh Sans', sans-serif;
     margin: 0;
-    padding: 0;
-    height: 100vh;
+    background: #f5f5f5;
+}
+
+.center {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f0f0f0;
-    font-family: Arial, sans-serif;
+    height: 100vh;
 }
 
-.export-button {
-    width: 130px;
+.btn-gray {
+    background: linear-gradient(180deg, #444444 0%, #333333 100%);
+    color: white;
+    font-family: 'Nunito Sans', sans-serif;
+    font-weight: semibold;
+    font-size: 13px;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    white-space: nowrap;
+}
+
+.btn-gray:hover {
+    background: #444444;
+}
+
+.popup {
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(4px);
+}
+
+.popup.hidden {
+    display: none;
+}
+
+.popup-content {
+    width: 460px;
+    height: 367px;
+    background: #2a2a2a;
+    border-radius: 12px;
+    padding: 24px;
+    position: relative;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0px 4px 20px rgba(0,0,0,0.4);
+}
+
+.popup-header {
+    width: 428px;
+    height: 53px;
+    flex-shrink: 0;
+}
+
+.close-btn {
+    position: absolute;
+    right: 16px;
+    top: 16px;
+    width: 22px;
+    height: 22px;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+}
+
+.close-btn:hover {
+    opacity: 1;
+}
+
+.popup-title {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.popup-subtitle {
+    font-size: 14px;
+    color: #aaa;
+    margin: 6px 0 0 0;
+    font-weight: 400;
+}
+
+/* UPDATED: Main container is now a flex column */
+.main {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Space between tab section and button */
+    flex-grow: 1;
+}
+
+.tab-section {
+    width: 428px;
+    background: #000;
+    border-radius: 12px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.tabs {
+    width: 412px;
+    height: 42px;
+    display: flex;
+    background: #1a1a1a;
+    border-radius: 8px;
+    padding: 4px;
+    gap: 4px;
+    flex-shrink: 0;
+    align-self: center;
+}
+
+.tab {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 6px;
+    background: transparent;
+    color: #ccc;
+    transition: background 0.2s, color 0.2s;
+    border: none;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.tab.active {
+    background: #000;
+    color: #fff;
+    box-shadow: inset 0 0 4px rgba(255,255,255,0.08);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    width: 412px;
+    display: block; /* Changed from flex to block */
+    align-self: center;
+}
+
+.export-option {
+    background: #000;
+    border: 1px solid #3a3a3a;
+    border-radius: 8px;
+    padding: 8px;
+}
+
+.export-title-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+}
+
+.export-title-container h3 {
+    font-size: 14px;
+    margin: 0;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.badge {
+    background: #555;
+    color: #ccc;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 400;
+}
+
+label {
+    display: flex;
+    align-items: center;
+    margin: 4px 0;
+    font-size: 13px;
+    font-weight: 400;
+    cursor: pointer;
+    padding-left: 30px;
+}
+
+label input[type="checkbox"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #000;
+    border: 1px solid #555;
+    border-radius: 4px;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+    margin-right: 8px;
+    position: relative;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+label input[type="checkbox"]:checked {
+    background-color: #8b5cf6;
+    border-color: #8b5cf6;
+}
+
+label input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    display: block;
+    left: 5px;
+    top: 2px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+code {
+    background: #555;
+    color: #e2e8f0;
+    padding: 2px 4px;
+    border-radius: 3px;
+    font-size: 12px;
+}
+
+/* UPDATED: Style for the stationary download button */
+#downloadBtn {
+    width: 183px;
     height: 32px;
     min-width: 130px;
     border-radius: 4px;
-    border-top: 1px solid #FFFFFF;
-    padding: 8px 16px;
     gap: 10px;
-    background: linear-gradient(180deg, #444444 0%, #333333 100%);
-    box-shadow: 0px 1px 1px 0px rgba(0, 0, 0, 0.3);
-    color: white;
-    font-size: 11px;
-    cursor: pointer;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    transition: all 0.3s ease;
-}
-
-.export-button:hover {
-    background-color: #555;
-}
-
-.export-button:active {
-    background-color: #222;
+    padding: 8px 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    align-self: center;
+    margin-top: auto; /* Pushes button to the bottom of the flex container */
 }

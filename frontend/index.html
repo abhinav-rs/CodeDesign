@@ -1,15 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Centered Button</title>
+    <title>Code Export Popup</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-    <button class="export-button">Export Code</button>
-</body>
+    <!-- Export Button -->
+    <div class="center">
+        <button id="exportBtn" class="btn-gray">EXPORT CODE</button>
+    </div>
 
+    <!-- Popup -->
+    <div id="popup" class="popup hidden">
+        <div class="popup-content">
+            <!-- Header Section -->
+            <div class="popup-header">
+                <h2 class="popup-title">Code Export</h2>
+                <p class="popup-subtitle">Manage how you download your website's code.</p>
+                <img src="x.png" id="closePopup" class="close-btn" alt="Close">
+            </div>
+
+            <!-- Main content area -->
+            <div class="main">
+                <!-- Section for tabs and content -->
+                <div class="tab-section">
+                    <!-- Pill Tabs -->
+                    <div class="tabs">
+                        <div class="tab active" data-tab="htmlcss">HTML & CSS</div>
+                        <div class="tab" data-tab="nextjs">Next JS</div>
+                    </div>
+
+                    <!-- HTML & CSS Content -->
+                    <div class="tab-content active" id="htmlcss">
+                        <div class="export-option">
+                            <div class="export-title-container">
+                                <img src="HTML.png" class="icon" alt="HTML Icon">
+                                <h3>Export as HTML & CSS <span class="badge">Zipped</span></h3>
+                            </div>
+                            <label><input type="checkbox" checked> Include assets (images, styles, fonts, etc.)</label>
+                            <label><input type="checkbox" checked> Include custom code</label>
+                        </div>
+                    </div>
+
+                    <!-- Next JS Content -->
+                    <div class="tab-content" id="nextjs">
+                        <div class="export-option">
+                            <div class="export-title-container">
+                                <img src="BRAND.png" class="icon" alt="Brand Icon">
+                                <h3>Export as Next JS Project <span class="badge">Zipped</span></h3>
+                            </div>
+                            <label><input type="checkbox" checked> Use app directory (NextJS v13+)</label>
+                            <label><input type="checkbox" checked> Include assets locally (images, styles, fonts, etc.)</label>
+                            <label><input type="checkbox" checked> Include custom code</label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- UPDATED: Stationary Download Button -->
+                <button id="downloadBtn" class="btn-gray">Download HTML CSS Project</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
 </html>
